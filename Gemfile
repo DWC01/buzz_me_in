@@ -17,6 +17,7 @@ gem "oauth2"
 gem "omniauth"
 gem "omniauth-facebook"
 gem 'font-awesome-rails'
+gem 'twilio-ruby', '~> 3.12'
 group :development do
   gem 'better_errors'
   gem 'binding_of_caller', :platforms=>[:mri_21]

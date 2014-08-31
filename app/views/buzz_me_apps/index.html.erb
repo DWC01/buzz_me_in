@@ -1,0 +1,24 @@
+<h1>Listing buzz_me_apps</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @buzz_me_apps.each do |buzz_me_app| %>
+      <tr>
+        <td> <%= buzz_me_app.twilio_number %> </td>
+        <td><%= link_to 'Show', buzz_me_app %></td>
+        <td><%= link_to 'Edit', edit_buzz_me_app_path(buzz_me_app) %></td>
+        <td><%= link_to 'Destroy', buzz_me_app, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Buzz me app', new_buzz_me_app_path %>

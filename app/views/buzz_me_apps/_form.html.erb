@@ -1,0 +1,22 @@
+<%= form_for(@buzz_me_app) do |f| %>
+<!--   <% if @buzz_me_app.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@buzz_me_app.errors.count, "error") %> prohibited this buzz_me_app from being saved:</h2>
+      <ul>
+      <% @buzz_me_app.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %> -->
+
+  <ul class="list-unstyled">
+   <li><%= f.text_field :twilio_number, :autofocus => true, :placeholder => "twilio_number", :class => "form-control list-unstyled" %> </li>
+   <li><%= f.text_field :buzz_in_number, :autofocus => true, :placeholder => "buzz_in_number", :class => "form-control list-unstyled" %> </li>
+   <li><%= f.text_field :password,:autofocus => true, :placeholder => "password", :class => "form-control list-unstyled" %> </li>
+  </ul>
+
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>
