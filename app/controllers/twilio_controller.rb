@@ -5,16 +5,16 @@ after_filter :set_header
 skip_before_action :verify_authenticity_token
 	  
   def voice
-    response = Twilio::TwiML::Response.new do |r|
-      #r.Say 'Hey there. Congrats on integrating Twilio into your Rails 4 app.', :voice => 'alice'
-	  #r.Play 'http://linode.rabasa.com/cantina.mp3'
+    twiml = Twilio::TwiML::Response.new do |r|
 	  r.Say 'Hey There Andrew, I am calling you now. ', :voice => 'alice'
-  	     r.Dial :callerId => '+19256399635' do |d|
+  	     r.Dial :callerId => '+19256399635' do |d|  	
     	  d.Number (CGI::escapeHTML '+14404274157') 
+    	  r.Say 'Hey There Andrew, Whats Up dog!?. ', :voice => 'alice'
+    	  r.Sms  "Here is the code to get in! Shhhh! -> 896"
   		 end
 	end
    
-   render_twiml response
+   render_twiml twiml
 
   end
 
