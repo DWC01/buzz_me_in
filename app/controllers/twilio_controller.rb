@@ -15,6 +15,8 @@ skip_before_action :verify_authenticity_token
 	end
    
    render_twiml response
+   # print the result
+   puts response.text
   end
  
 	
