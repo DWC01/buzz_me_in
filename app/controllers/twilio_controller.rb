@@ -16,10 +16,10 @@ skip_before_action :verify_authenticity_token
 	  
   def voice
     twiml = Twilio::TwiML::Response.new do |r|
-	  # r.Say 'Hey There Andrew, I am calling you now. ', :voice => 'alice'
-  	#      r.Dial :callerId => CALLER_ID do |d|  	
-   #  	  d.Number (CGI::escapeHTML '+14404274157') 
-  	# 	 end
+	  r.Say 'Hey There Andrew, I am calling you now. ', :voice => 'alice'
+  	     r.Dial :callerId => CALLER_ID do |d|  	
+    	  d.Number (CGI::escapeHTML '+14404274157') 
+  		 end
   	# 	 r.Sms :callerId => CALLER_ID do |d| 
   	# 	 	"Here is the code to get in! Shhhh! -> 896"
 	     # r.Gather :action => 'first_user_response' do |g|
@@ -39,18 +39,18 @@ skip_before_action :verify_authenticity_token
   #   render_twiml twiml
   # end 	
 
-  def message
+  # def message
 
-    @twilio_client = Twilio::REST::Client.new ACCOUNT_SID, ACCOUNT_TOKEN
+  #   @twilio_client = Twilio::REST::Client.new ACCOUNT_SID, ACCOUNT_TOKEN
  
-    @twilio_client.account.sms.messages.create(
-      :from => CALLER_ID,
-      :to => '+14404274157',
-      :body => "This is an message!!!"
-    )
-    end
+  #   @twilio_client.account.sms.messages.create(
+  #     :from => CALLER_ID,
+  #     :to => '+14404274157',
+  #     :body => "This is an message!!!"
+  #   )
+  #   end
     
-  end
+  # end
  
 	
 end
