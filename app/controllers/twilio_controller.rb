@@ -33,8 +33,9 @@ skip_before_action :verify_authenticity_token
   end
 
   def first_user_response
+  	@digits = params[:digits]
   	twiml = Twilio::TwiML::Response.new do |r|
-  	  if r.Digits > 5	
+  	  if @digits > 5	
 	    r.Say "Your Digit is Greater than 5."
 	    #r.Say Digits
 	  else
