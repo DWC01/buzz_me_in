@@ -22,7 +22,7 @@ skip_before_action :verify_authenticity_token
   	# 	 end
   	# 	 r.Sms :callerId => CALLER_ID do |d| 
   	# 	 	"Here is the code to get in! Shhhh! -> 896"
-	     r.Gather :action => 'initial_menu_response', :method => 'POST' do |g|
+	     r.Gather :action => 'first_user_response', :method => 'POST' do |g|
 	       g.Say 'Hey There. Press one to enter the password for entry. Press Two to
 	       call the homeowner.', :voice => 'alice'
 	      end
@@ -35,32 +35,17 @@ skip_before_action :verify_authenticity_token
 
   def initial_menu_response
   	  @digits = params['Digits']
-  	  
-  	  if @digits == "1"
+  	  if @digits> 5.to_s
   	    twiml = Twilio::TwiML::Response.new do |r|
-	       r.Gather :method => 'POST' do |g|
-	        g.Say " Please enter your password."
-	       end
-	    end  
+	      r.Say "Your Digit is Greater than 5."
+	    end
 	  else 
-	    twiml = Twilio::TwiML::Response.new do |r|
-	       r.Dial :callerId => CALLER_ID do |d|  	
-     	     d.Number (CGI::escapeHTML '+14404274157') 
-  	 	   end
-  	 	end   
+	   r.Dial :callerId => CALLER_ID do |d|  	
+     	  d.Number (CGI::escapeHTML '+14404274157') 
+  	 	 end
 	  end  
     render_twiml twiml
-  end
-
-  # def password_validation
-  #  @digits = params['Digits']
-  # 	 if @digits == "1234"
-  # 	   twiml = Twilio::TwiML::Response.new do |r|
-	 #    r.Say "Please Come In BUZZZZZZ"
-  # 	   end
-  # 	 end 
-  #  render_twiml twiml  	
-  # end  	
+  end 	
 
   # def message
 
