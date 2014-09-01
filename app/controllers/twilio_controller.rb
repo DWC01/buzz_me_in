@@ -35,7 +35,7 @@ skip_before_action :verify_authenticity_token
 
   def initial_menu_response
   	  @digits = params['Digits']
-  	  if @digits == 1
+  	  if @digits == "1"
   	    twiml = Twilio::TwiML::Response.new do |r|
 	      r.Gather :action => 'password_validation', :method => 'POST' do |g|
 	       g.Say " Please enter your password."
