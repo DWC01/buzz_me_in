@@ -3,7 +3,8 @@ Rails.application.routes.draw do
   
   post 'twilio/voice'    			 => 'twilio#voice'
   #post 'twilio/message'  			 => 'twilio#message'
-  post 'twilio/first_user_response'  => 'twilio#first_user_response'
+  post 'twilio/initial_menu_response'  => 'twilio#initial_menu_response'
+  post 'twilio/password_validation'    => 'twilio#password_validation'
 
   root to: 'visitors#index'
 end
