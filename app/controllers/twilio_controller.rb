@@ -40,9 +40,11 @@ skip_before_action :verify_authenticity_token
 	      r.Say "Please Enter Your Password."
 	    end
 	  else 
-	   r.Dial :callerId => CALLER_ID do |d|  	
-     	  d.Number (CGI::escapeHTML '+14404274157') 
-  	 	 end
+	  	twiml = Twilio::TwiML::Response.new do |r|
+	      r.Dial :callerId => CALLER_ID do |d|  	
+     	    d.Number (CGI::escapeHTML '+14404274157') 
+  	 	  end
+  	 	end  
 	  end  
     render_twiml twiml
   end 	
