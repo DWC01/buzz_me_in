@@ -38,7 +38,7 @@ skip_before_action :verify_authenticity_token
   	  if @digits == "1"
   	    twiml = Twilio::TwiML::Response.new do |r|
   	      r.Gather :action => 'password_validation', :method => 'POST' do |g|	
-	        g.Say "Please Enter Your Password."
+	        g.Say "Please Enter Your Password.", :voice => 'alice'
 	      end  
 	    end
 	  else 
@@ -52,9 +52,16 @@ skip_before_action :verify_authenticity_token
   end 
 
   def password_validation
-    twiml = Twilio::TwiML::Response.new do |r|
-	 r.Say "Please enter the building Buzzzzzzzzz."
-    end
+  	@digits = params['Digits']
+  	  if @digits == "1234"
+        twiml = Twilio::TwiML::Response.new do |r|
+	      r.Say "Please enter the building Bu uu uu uu zz zzz zz zz zz zz zz.", :voice => 'alice'
+        end
+      else
+      	twiml = Twilio::TwiML::Response.new do |r|
+	      r.Say "Invalid Password. We are calling the police.", :voice => 'alice'
+        end 
+      end	
    render_twiml twiml 
   end	
 
