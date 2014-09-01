@@ -22,9 +22,9 @@ skip_before_action :verify_authenticity_token
   	# 	 end
   	# 	 r.Sms :callerId => CALLER_ID do |d| 
   	# 	 	"Here is the code to get in! Shhhh! -> 896"
-	     r.Gather :action => 'first_user_response' do |g|
-	      g.Say 'Hey There Andrew! Presss One to enter a password to get Buzzed in', :voice => 'alice'
-	     end
+	     # r.Gather :action => 'first_user_response' do |g|
+	     #  g.Say 'Hey There Andrew! Presss One to enter a password to get Buzzed in', :voice => 'alice'
+	     # end
 
 	end
    
