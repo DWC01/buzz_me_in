@@ -52,15 +52,15 @@ skip_before_action :verify_authenticity_token
     render_twiml twiml
   end
 
-  def password_validation
-   @digits = params['Digits']
-  	 if @digits == "1234"
-  	   twiml = Twilio::TwiML::Response.new do |r|
-	    r.Say "Please Come In BUZZZZZZ"
-  	   end
-  	 end 
-   render_twiml twiml  	
-  end  	
+  # def password_validation
+  #  @digits = params['Digits']
+  # 	 if @digits == "1234"
+  # 	   twiml = Twilio::TwiML::Response.new do |r|
+	 #    r.Say "Please Come In BUZZZZZZ"
+  # 	   end
+  # 	 end 
+  #  render_twiml twiml  	
+  # end  	
 
   # def message
 
