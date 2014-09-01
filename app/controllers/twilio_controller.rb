@@ -37,7 +37,9 @@ skip_before_action :verify_authenticity_token
   	  @digits = params['Digits']
   	  if @digits == "1"
   	    twiml = Twilio::TwiML::Response.new do |r|
-	      r.Say "Please Enter Your Password."
+  	      r.Gather :action => 'password_validation', :method => 'POST' do |g|	
+	        g.Say "Please Enter Your Password."
+	      end  
 	    end
 	  else 
 	  	twiml = Twilio::TwiML::Response.new do |r|
@@ -47,17 +49,24 @@ skip_before_action :verify_authenticity_token
   	 	end  
 	  end  
     render_twiml twiml
-  end 	
+  end 
 
-  # def message
+  def password_validation
+    twiml = Twilio::TwiML::Response.new do |r|
+	 r.Say "Please enter the building Buzzzzzzzzz."
+    end
+   render_twiml twiml 
+  end	
 
-  #   @twilio_client = Twilio::REST::Client.new ACCOUNT_SID, ACCOUNT_TOKEN
+   # def message
+
+   #   @twilio_client = Twilio::REST::Client.new ACCOUNT_SID, ACCOUNT_TOKEN
  
-  #   @twilio_client.account.sms.messages.create(
-  #     :from => CALLER_ID,
-  #     :to => '+14404274157',
-  #     :body => "This is an message!!!"
-  #   )
+   #   @twilio_client.account.sms.messages.create(
+   #     :from => CALLER_ID,
+   #     :to => '+14404274157',
+   #     :body => "This is an message!!!"
+   #    )
   #   end
     
   # end
