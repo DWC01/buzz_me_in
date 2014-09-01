@@ -34,7 +34,12 @@ skip_before_action :verify_authenticity_token
 
   def first_user_response
   	twiml = Twilio::TwiML::Response.new do |r|
-	  r.Say "This is Saying from the first user response method."
+  	  if Digits > 5	
+	    r.Say "Your Digit is Greater than 5."
+	    r.Say Digits
+	  else
+	  	r.Say "Your Digit is Less than 5."
+	  	r.Say Digits
      end
     render_twiml twiml
   end 	
