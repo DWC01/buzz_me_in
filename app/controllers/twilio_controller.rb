@@ -16,18 +16,27 @@ skip_before_action :verify_authenticity_token
 	  
   def voice
     twiml = Twilio::TwiML::Response.new do |r|
-	  r.Say 'Hey There Andrew, I am calling you now. ', :voice => 'alice'
-  	     r.Dial :callerId => CALLER_ID do |d|  	
-    	  d.Number (CGI::escapeHTML '+14404274157') 
-    	  d.Say 'Hey There Andrew, Whats Up dog!?. ', :voice => 'alice'
-  		 end
-  		 r.Sms :callerId => CALLER_ID do |d| 
-  		 	"Here is the code to get in! Shhhh! -> 896"
+	  # r.Say 'Hey There Andrew, I am calling you now. ', :voice => 'alice'
+  	#      r.Dial :callerId => CALLER_ID do |d|  	
+   #  	  d.Number (CGI::escapeHTML '+14404274157') 
+  	# 	 end
+  	# 	 r.Sms :callerId => CALLER_ID do |d| 
+  	# 	 	"Here is the code to get in! Shhhh! -> 896"
+     r.Gather :action => 'first_user_response' do |g|
+      g.Say 'Hey There Andrew! Presss One to enter a password to get Buzzed in', :voice => 'alice'
+     end
+
 	end
    
    render_twiml twiml
 
   end
+
+  def first_user_response
+  	twiml = Twilio::TwiML::Response.new do |r|
+	  r.Say "This is Saying from the first user response method."
+     end
+  end 	
 
   def message
 
