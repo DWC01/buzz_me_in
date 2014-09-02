@@ -16,21 +16,12 @@ skip_before_action :verify_authenticity_token
 	  
   def voice
     twiml = Twilio::TwiML::Response.new do |r|
-	  # r.Say 'Hey There Andrew, I am calling you now. ', :voice => 'alice'
-  	#      r.Dial :callerId => CALLER_ID do |d|  	
-   #  	  d.Number (CGI::escapeHTML '+14404274157') 
-  	# 	 end
-  	# 	 r.Sms :callerId => CALLER_ID do |d| 
-  	# 	 	"Here is the code to get in! Shhhh! -> 896"
-	     r.Gather :action => 'initial_menu_response', :method => 'POST' do |g|
-	       g.Say 'Hey There. Press one to enter the password for entry. Press Two to
+	  r.Gather :action => 'initial_menu_response', :method => 'POST' do |g|
+	    g.Say 'Hey There. Press one to enter the password for entry. Press Two to
 	       call the homeowner.', :voice => 'alice'
-	      end
-
+	    end
 	end
-   
     render_twiml twiml
-
   end
 
   def initial_menu_response
@@ -55,7 +46,8 @@ skip_before_action :verify_authenticity_token
   	@digits = params['Digits']
   	  if @digits == "1234"
         twiml = Twilio::TwiML::Response.new do |r|
-	      r.Say "Please enter the building Bu uu uu uu zz zzz zz zz zz zz zz.", :voice => 'alice'
+        r.Play "http://moviewavs.com/0059305935/WAVS/Movies/Back_To_The_Future/seriousBLEEP.wav"
+	      r.Play "http://www.dialabc.com/i/cache/dtmfgen/wavpcm8.300/6.wav"
         end
       else
       	twiml = Twilio::TwiML::Response.new do |r|
@@ -65,18 +57,4 @@ skip_before_action :verify_authenticity_token
    render_twiml twiml 
   end	
 
-   # def message
-
-   #   @twilio_client = Twilio::REST::Client.new ACCOUNT_SID, ACCOUNT_TOKEN
- 
-   #   @twilio_client.account.sms.messages.create(
-   #     :from => CALLER_ID,
-   #     :to => '+14404274157',
-   #     :body => "This is an message!!!"
-   #    )
-  #   end
-    
-  # end
- 
-	
 end
