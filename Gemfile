@@ -18,6 +18,7 @@ gem "omniauth"
 gem "omniauth-facebook"
 gem 'font-awesome-rails'
 gem 'twilio-ruby', '~> 3.12'
+
 group :development do
   gem 'better_errors'
   gem 'binding_of_caller', :platforms=>[:mri_21]
@@ -26,4 +27,5 @@ group :development do
 end
 group :production do
   gem 'unicorn'
+  gem 'rails_12factor'
 end
