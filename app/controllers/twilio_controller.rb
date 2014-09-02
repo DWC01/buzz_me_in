@@ -46,8 +46,8 @@ skip_before_action :verify_authenticity_token
   	@digits = params['Digits']
   	  if @digits == "1234"
         twiml = Twilio::TwiML::Response.new do |r|
-        r.Play "http://moviewavs.com/0059305935/WAVS/Movies/Back_To_The_Future/seriousBLEEP.wav"
-	      r.Play "http://www.dialabc.com/i/cache/dtmfgen/wavpcm8.300/6.wav"
+        r.Play 'http://moviewavs.com/0059305935/WAVS/Movies/Back_To_The_Future/seriousBLEEP.wav'
+	      r.Play 'http://www.dialabc.com/i/cache/dtmfgen/wavpcm8.300/6.wav'
         end
       else
       	twiml = Twilio::TwiML::Response.new do |r|
