@@ -1,0 +1,23 @@
+<h1>Listing apt_buzzers</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @apt_buzzers.each do |apt_buzzer| %>
+      <tr>
+        <td><%= link_to 'Show', apt_buzzer %></td>
+        <td><%= link_to 'Edit', edit_apt_buzzer_path(apt_buzzer) %></td>
+        <td><%= link_to 'Destroy', apt_buzzer, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Apt buzzer', new_apt_buzzer_path %>

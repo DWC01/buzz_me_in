@@ -1,0 +1,205 @@
+// Modules and Variables
+@import "partials/base";
+
+// Partials
+@import "partials/buttons";
+@import "partials/typography";
+@import "partials/global";
+@import "partials/nav_bar";
+
+body{
+  font-family: $font-stack;
+  font-size: 14px;
+}
+
+a {
+color: $default-color;
+outline: none;
+border: 0px solid trasparent;
+text-decoration: none;
+& :hover{
+color: $primary-color;
+outline: none;
+border: 0px solid trasparent;
+text-decoration: none;
+ }
+& :focus{
+color: $primary-color;
+outline: none;
+border: 0px solid trasparent;
+text-decoration: none;
+ }
+& :active{
+color: $primary-color;
+outline: none;
+border: 0px solid trasparent;
+text-decoration: none;
+ }
+}
+
+.alert{
+  border-top-right-radius:0px;
+  border-top-left-radius:0px;
+}
+
+/*===================================
+          Navbar Styles
+=====================================*/
+
+.navbar-default{
+ background-color: #fff;
+ height: 50px;
+ box-shadow: 0px 0px 10px 0px rgba(0, 0, 0, 0.2);
+ border-color: #eee;
+ border-bottom: #aaa;
+ font-size: 17px;
+}
+
+.navbar-default .navbar-brand, .navbar-default .navbar-nav > li > a{
+  color: $default-color;
+  transition: all .2s ease-in-out;
+  &:hover{
+  color: $primary-color;
+  }
+  &:focus{
+  color: $primary-color;
+  }
+  &:active{
+  color: $primary-color;
+  }
+}
+
+#navbar-logo{
+margin-top: 2px;
+}
+
+.navbar-user-tab-wrapper{
+margin: -4px 0px 0px 0px;
+border: 1px solid #ccc;
+border-radius: 4px;
+padding: 0px;
+height: 30px;
+overflow: hidden;
+}
+
+.navbar-user-tab-img {
+z-index: 10;
+position: relative;
+top: 0px;
+display:inline-flex;
+}
+
+.navbar-user-tab-grey-bk {
+background-color: #eee;
+width: 100%;
+height: 50%;
+position: relative;
+top: -39px;
+opacity: .5;
+}
+
+.navbar-user-tab-user-name {
+position: relative;
+top: -29px;
+margin: 0px 10px 0px 38px;
+z-index: 10;
+}
+
+.dropdown-navbar-user-tab a{
+font: 17px leelawad;
+color: $default-color;
+text-shadow: none;
+text-decoration: none;
+}
+
+#navbar-user-tab{
+  padding-right: 0px !important;
+  margin: 13px 0 0 10px !important;
+}
+
+.dropdown-menu > li > a:hover, 
+.dropdown-menu > li > a:focus{
+ text-decoration: none;
+ color: #fff;
+ background-color: $primary-color;
+}
+
+/*===================================
+          Main Styles
+=====================================*/
+
+.container, main {
+width: 70%;
+background-color: #fff;
+}
+
+/*===================================
+          Form Styles
+=====================================*/
+
+.form-wrapper{
+ background-color: white;
+ border: 1px solid #CCC;
+ border-radius: 4px 4px 4px 4px;
+ float: none;
+ margin: 50px auto;
+ padding-bottom: 26px;
+ width: 40%;
+ margin-bottom: 25px;
+ box-shadow: 0px 0px 10px 0px #DDD;
+}
+
+.form-header{
+ width: 100%;
+ padding: 25px 0px;
+ margin-bottom: 10px;
+ background-color: #f4f4f4;
+ border-bottom: 1px solid #d6d6d6;
+ border-radius: 5px 5px 0px 0px;
+ text-align: center;
+}
+
+.form{
+ width:100%;
+ padding: 10px 20px;
+ float: none;
+ & .form-input-name{
+  float: left;
+  width: 48.5%;
+  margin-bottom:15px;
+ }
+ & #form-first-name{
+  margin-right: 10px;
+ }
+ & .form-input{
+  margin-bottom:15px;
+ }
+ & #form-submit-button{
+ width: 100%;
+ margin-top: 56px;
+ }
+}
+
+/*===================================
+         Footer Styles
+=====================================*/
+footer {
+position: relative;
+margin-top: 50px;
+padding-top: 5px;
+border-top: 1px solid #eaeaea;
+color: #999999;
+}
+
+footer a {
+ color: #555555;
+&:hover{
+ color:$default-color;
+ text-decoration:none;
+ outline: none; 
+ }
+}
+
+
+
+

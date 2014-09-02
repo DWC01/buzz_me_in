@@ -1,0 +1,21 @@
+.box-shadow {
+box-shadow: 1px 1px 3px rgba(0, 0, 0, 0.45);
+}
+
+.fluid{
+  width: 100%;
+}
+
+.no-border{
+border: none !important;
+border-color: transparent !important;
+box-shadow: none !important;
+}
+
+.center{
+ margin: 0px auto;
+ float: none;
+ text-align: center;
+}
+
+

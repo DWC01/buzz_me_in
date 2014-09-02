@@ -1,0 +1,17 @@
+<%= form_for(@apt_buzzer) do |f| %>
+  <% if @apt_buzzer.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@apt_buzzer.errors.count, "error") %> prohibited this apt_buzzer from being saved:</h2>
+
+      <ul>
+      <% @apt_buzzer.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>

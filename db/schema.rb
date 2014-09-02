@@ -11,10 +11,18 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140831200015) do
+ActiveRecord::Schema.define(version: 20140902054433) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "apt_buzzers", force: true do |t|
+    t.string   "phone_number"
+    t.string   "password"
+    t.string   "dtmf_signal"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
 
   create_table "buzz_me_apps", force: true do |t|
     t.string   "twilio_number"

@@ -10,11 +10,12 @@
   </head>
   <body>
     <header>
-      <%= render 'layouts/navigation' %>
+      <%= render 'layouts/shared/navigation' %>
     </header>
     <main role="main">
-       <%= render 'layouts/messages' %>
+       <%= render 'layouts/shared/messages' %>
        <%= yield %>
+     <%= render 'layouts/shared/footer' %>
     </main>
   </body>
 </html>

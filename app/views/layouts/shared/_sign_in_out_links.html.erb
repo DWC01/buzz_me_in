@@ -1,0 +1,33 @@
+<% if current_user %>
+<li>
+ <div class="dropdown dropdown-navbar-user-tab" id="navbar-user-tab">
+  <a data-toggle="dropdown" class="borderless" href="#">
+   <div class="navbar-user-tab-wrapper">
+    <div class="navbar-user-tab-img">
+     <%= image_tag "dc.jpg", :class=>"img-responsive" %>
+    </div>
+    <div class="navbar-user-tab-user-name" >
+     <%= current_user.first_name %>
+    </div>
+    <div class="navbar-user-tab-grey-bk"></div>
+   </div>   
+  </a>
+   <ul class="dropdown-menu" role="menu" aria-labelledby="dLabel">
+    <li>
+     <%= link_to 'Profile Settings', root_path %>
+    </li>
+    <li>
+     <%= link_to 'My Progress', root_path %>
+    </li>
+   <li class="divider"></li>
+    <li>
+     <%= link_to "Log Out",  sign_out_path, :id => "sign_out" %>
+    </li>
+   </ul>
+ </div> <!-- end of drop down --> 
+</li>
+<% else %>
+<li>
+  <%= link_to "Sign In",  sign_in_path, :class=>"" %>
+</li>
+<% end %>
